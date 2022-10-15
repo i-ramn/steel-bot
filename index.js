@@ -17,7 +17,7 @@ const start = () => {
     const chatId = msg.chat.id;
 
     if (text === "/start") {
-      await bot.sendMessage(chatId, "АУФ, ЧЕРТИ");
+      return await bot.sendMessage(chatId, "АУФ, ЧЕРТИ");
     }
 
     if (text === "/check") {
@@ -26,8 +26,9 @@ const start = () => {
 
       await bot.sendMessage(chatId, `Ты железный на ${percent}%`);
       return await bot.sendPhoto(chatId, `public/images/${chosenFile}`);
+    } else {
+      return await bot.sendMessage(chatId, "ты че волк???");
     }
-    return bot.sendMessage(chatId, "Ты че, волк????");
   });
 };
 
