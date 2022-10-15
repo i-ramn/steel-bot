@@ -20,7 +20,7 @@ const start = () => {
       await bot.sendMessage(chatId, "АУФ, ЧЕРТИ");
     }
 
-    if (text === "/check") {
+    if (text === "/check" || text === "/start") {
       const chosenFile = files[Math.floor(Math.random() * files.length)];
       const percent = Math.floor(Math.random() * 100).toFixed(0);
 
