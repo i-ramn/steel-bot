@@ -20,12 +20,12 @@ const start = () => {
       await bot.sendMessage(chatId, "АУФ, ЧЕРТИ");
     }
 
-    if (text === "/check" || text === "/start") {
+    if (text === "/check") {
       const chosenFile = files[Math.floor(Math.random() * files.length)];
       const percent = Math.floor(Math.random() * 100).toFixed(0);
 
-      await bot.sendPhoto(chatId, `public/images/${chosenFile}`);
-      return await bot.sendMessage(chatId, `Ты железный на ${percent}%`);
+      await bot.sendMessage(chatId, `Ты железный на ${percent}%`);
+      return await bot.sendPhoto(chatId, `public/images/${chosenFile}`);
     }
     return bot.sendMessage(chatId, "Ты че, волк????");
   });
