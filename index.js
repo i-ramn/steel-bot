@@ -7,24 +7,27 @@ const token = "5703860431:AAGfBM38uS9xGIkLmZq3bcV1B-cm_6dDScQ";
 
 const bot = new TelegramApi(token, { polling: true });
 
+const START = "/start@nejeleznij_bot";
+const CHECK = "/check@nejeleznij_bot";
+
 const start = () => {
   void bot.setMyCommands([
+    { command: START, description: "Стартуем проверочку" },
     {
-      command: "/check@nejeleznij_bot",
+      command: CHECK,
       description: "Проверь свою железность",
     },
-    { command: "/start@nejeleznij_bot", description: "Стартуем проверочку" },
   ]);
 
   bot.on("message", async (msg) => {
     const text = msg.text;
     const chatId = msg.chat.id;
 
-    if (text === "/start@nejeleznij_bot") {
+    if (text === START) {
       return await bot.sendMessage(chatId, "АУФ, ЧЕРТИ");
     }
 
-    if (text === "/check@nejeleznij_bot") {
+    if (text === CHECK) {
       const chosenFile = files[Math.floor(Math.random() * files.length)];
       const percent = Math.floor(Math.random() * 100).toFixed(0);
 
