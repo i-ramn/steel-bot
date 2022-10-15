@@ -26,9 +26,8 @@ const start = () => {
 
       await bot.sendMessage(chatId, `Ты железный на ${percent}%`);
       return await bot.sendPhoto(chatId, `public/images/${chosenFile}`);
-    } else {
-      return await bot.sendMessage(chatId, "ты че волк???");
     }
+    return await bot.sendMessage(chatId, "ты че волк???");
   });
 };
 
