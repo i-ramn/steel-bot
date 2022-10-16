@@ -25,7 +25,7 @@ const start = () => {
   bot.on("message", async (msg) => {
     const text = msg.text;
     const chatId = msg.chat.id;
-    const leha = msg.from.username.toLowerCase() === "leshapain";
+    // const leha = msg.from.username.toLowerCase() === "leshapain";
 
     const findSteel = chosenFile().includes("jeleznij");
 
@@ -33,14 +33,14 @@ const start = () => {
       return await bot.sendMessage(chatId, "АУФ, ЧЕРТИ");
     }
 
-    if (text === CHECK && !leha && !findSteel) {
+    if (text === CHECK && !findSteel) {
       console.log(chosenFile());
       console.log(findSteel);
       await bot.sendMessage(chatId, `Ты железный на ${percent()}%`);
       return await bot.sendPhoto(chatId, `public/images/${chosenFile()}`);
     }
 
-    if (leha || findSteel) {
+    if (text === CHECK && findSteel) {
       console.log(chosenFile());
       console.log(findSteel);
 
